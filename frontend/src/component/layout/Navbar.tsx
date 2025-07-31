@@ -13,7 +13,8 @@ const Navbar = () => {
   const [adminData, setAdminData] = useState<{ name?: string; image?: string }>(
     {}
   );
-  const { admin } = useSelector((state: RootStore) => state?.admin);
+  // Use RootStore type for state, fallback to any for persisted state compatibility
+  const { admin } = useSelector((state: RootStore | any) => state.admin);
   const adminDataInitialized = useRef(false); // Ref to track initialization
 
   const dispatch = useAppDispatch();
@@ -29,7 +30,7 @@ const Navbar = () => {
 
   useEffect(() => {
     setAdminData(admin?.image);
-  }, [dispatch]);
+  }, [admin]);
 
   const handleNotify = (id: any) => {
     dispatch(
