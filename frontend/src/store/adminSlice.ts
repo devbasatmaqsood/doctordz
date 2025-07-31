@@ -60,6 +60,12 @@ export const updateAdminPassword: any = createAsyncThunk(
   }
 );
 
+const initialState: UserState = {
+  isAuth: false,
+  admin: {},
+  isLoading: false,
+};
+
 const adminSlice = createSlice({
   name: "admin",
   initialState,
