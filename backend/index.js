@@ -48,7 +48,7 @@ global.updateSettingFile = (settingData) => {
 };
 
 const indexRoute = require("./route/index");
-app.use(indexRoute);
+app.use('/api',indexRoute);
 
 //socket io
 const http = require("http");
